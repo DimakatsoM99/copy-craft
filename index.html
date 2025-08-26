@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CopyCrafter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+        .toggle-btn {
+            float: right;
+            margin-top: -40px;
+        }
+        .result-box {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .dark-mode .result-box {
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+    <h1>🧠 CopyCrafter</h1>
+    <form method="POST">
+        <label>Product:</label>
+        <input type="text" name="product" required>
+
+        <label>Tone:</label>
+        <select name="tone" required>
+            <option value="formal">Formal</option>
+            <option value="witty">Witty</option>
+            <option value="persuasive">Persuasive</option>
+            <option value="friendly">Friendly</option>
+            <option value="excited">Excited</option>
+        </select>
+
+        <label>Audience:</label>
+        <input type="text" name="audience" required>
+
+        <label>Creativity (0.5 to 1.5):</label>
+        <input type="range" name="creativity" min="0.5" max="1.5" step="0.1" value="1.0" oninput="this.nextElementSibling.value = this.value">
+        <output>1.0</output>
+
+        <button type="submit">🚀 Generate Copy</button>
+    </form>
+
+    {% if result %}
+        <div class="result-box">
+            <h2>📝 Generated Copy:</h2>
+            <p>{{ result }}</p>
+            <a href="/download">📥 Download as PDF</a>
+        </div>
+    {% endif %}
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
+
+
+

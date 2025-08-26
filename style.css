@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #ffffff;
+    color: #000000;
+}
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+}
+
